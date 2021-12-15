@@ -18,6 +18,7 @@
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/mmdb</property>
 		<property name="hibernate.connection.username">postgres</property>
 		<property name="hibernate.connection.password">root</property>
+		<property name="dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
 
 		<!-- hibernate config -->
 		<property name="showsql">true</property>

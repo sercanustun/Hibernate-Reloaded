@@ -8,24 +8,24 @@ import com.bilgeadam.boost.java.course01.lesson068.utils.HibernateUtils;
 
 public interface Controllable<T> {
 	public void create(T entity);// ekleme
-	
+
 	public void delete(T entity);// silmek
-	
-	public void update(T entity);// gÃ¼ncelleme
-	
+
+	public void update(T entity);// güncelleme
+
 	default ArrayList<T> list(int rowCount) {// listeleme
 		return null;
 	}
-	
+
 	default T find(long id) {
 		return null;
 	}
-	
+
 	default T singleResult(long id) {
 		return null;
 	}
-	
-	// gÃ¶vdeli method
+
+	// gövdeli method
 	default Session databaseConnectionHibernate() {
 		return HibernateUtils.getSessionFactory().openSession();
 	}

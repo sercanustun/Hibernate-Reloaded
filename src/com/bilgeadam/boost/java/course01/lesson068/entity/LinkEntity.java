@@ -1,12 +1,9 @@
 package com.bilgeadam.boost.java.course01.lesson068.entity;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,10 +17,15 @@ import lombok.ToString;
 @Entity
 @Table(name = "links")
 public class LinkEntity {
-	@Id 
-	private long   id;
+	@Id
+	private long id;
 	@Column(name = "imdb")
 	private String imdb;
 	@Column(name = "tmdb")
 	private String tmdb;
+	
+	@Override
+	public String toString() {
+		return "LinkEntity [id=" + id + ", imdb=" + imdb + ", tmdb=" + tmdb + "]";
+	}
 }

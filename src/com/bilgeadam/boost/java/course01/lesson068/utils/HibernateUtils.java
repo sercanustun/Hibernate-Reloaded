@@ -6,6 +6,8 @@ import org.hibernate.cfg.Configuration;
 import com.bilgeadam.boost.java.course01.lesson068.entity.GenreEntity;
 import com.bilgeadam.boost.java.course01.lesson068.entity.LinkEntity;
 import com.bilgeadam.boost.java.course01.lesson068.entity.MovieEntity;
+import com.bilgeadam.boost.java.course01.lesson068.entity.MovieRating;
+import com.bilgeadam.boost.java.course01.lesson068.entity.MoviesUsersTag;
 import com.bilgeadam.boost.java.course01.lesson068.entity.TagEntity;
 import com.bilgeadam.boost.java.course01.lesson068.entity.UserEntity;
 
@@ -22,6 +24,8 @@ public class HibernateUtils {
 			configuration.addAnnotatedClass(LinkEntity.class);
 			configuration.addAnnotatedClass(TagEntity.class);
 			configuration.addAnnotatedClass(GenreEntity.class);
+			configuration.addAnnotatedClass(MovieRating.class);
+			configuration.addAnnotatedClass(MoviesUsersTag.class);
 			
 
 			SessionFactory factory = configuration.configure("hibernate.cfg.xml").buildSessionFactory();

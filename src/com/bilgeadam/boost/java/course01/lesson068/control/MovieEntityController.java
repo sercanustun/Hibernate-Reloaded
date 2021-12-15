@@ -8,7 +8,7 @@ import org.hibernate.Session;
 
 import com.bilgeadam.boost.java.course01.lesson068.entity.MovieEntity;
 
-public class MovieEntityController implements Controllable<MovieEntity> {
+public class MovieEntityController implements Controllable<MovieEntity>{
 	@Override
 	public void create(MovieEntity entity) {
 		try {
@@ -17,9 +17,9 @@ public class MovieEntityController implements Controllable<MovieEntity> {
 			System.out.println(session);
 			session.persist(entity);
 			session.getTransaction().commit();
-			System.out.println("ekleme tamamdÃ½r" + Controllable.class);
+			System.out.println("ekleme tamamdýr" + Controllable.class);
 		} catch (Exception e) {
-			System.out.println("ekleme anÃ½nda hata meydana geldi !!!!! " + Controllable.class);
+			System.out.println("ekleme anýnda hata meydana geldi !!!!! " + Controllable.class);
 			e.printStackTrace();
 		}
 	}
@@ -34,10 +34,10 @@ public class MovieEntityController implements Controllable<MovieEntity> {
 				session.getTransaction().begin();
 				session.remove(findEntity);
 				session.getTransaction().commit();
-				System.out.println("Silme BaÃ¾arÃ½lÃ½ " + MovieEntity.class);
+				System.out.println("Silme Baþarýlý " + MovieEntity.class);
 			}
 		} catch (Exception e) {
-			System.out.println("silme anÃ½nda hata meydana geldi !!!!! " + Controllable.class);
+			System.out.println("silme anýnda hata meydana geldi !!!!! " + Controllable.class);
 			e.printStackTrace();
 		}
 		
@@ -55,11 +55,11 @@ public class MovieEntityController implements Controllable<MovieEntity> {
 				session.getTransaction().begin();
 				session.merge(findEntity);
 				session.getTransaction().commit();
-				System.out.println("GÃ¼ncelleme BaÃ¾arÃ½lÃ½ " + MovieEntity.class);
+				System.out.println("Güncelleme Baþarýlý " + MovieEntity.class);
 			}
 			
 		} catch (Exception e) {
-			System.out.println("gÃ¼ncelleme anÃ½nda hata meydana geldi !!!!! " + Controllable.class);
+			System.out.println("güncelleme anýnda hata meydana geldi !!!!! " + Controllable.class);
 			e.printStackTrace();
 		}
 	}
@@ -69,16 +69,17 @@ public class MovieEntityController implements Controllable<MovieEntity> {
 		Session session = databaseConnectionHibernate();
 		
 		if (rowCount == -1) {
-			String hql = "select str from MovieEntity as str where str.id>=:key";
-			TypedQuery<MovieEntity> typedQuery = session.createQuery(hql, MovieEntity.class);
-			
-			long id = 1L;
-			typedQuery.setParameter("key", id);
-			
-			ArrayList<MovieEntity> arrayList = (ArrayList<MovieEntity>) typedQuery.getResultList();
-			System.out.println("listelendi " + MovieEntity.class);
-			return arrayList;
-		} else {
+		String hql = "select str from MovieEntity as str where str.id>=:key";
+		TypedQuery<MovieEntity> typedQuery = session.createQuery(hql, MovieEntity.class);
+		
+		long id = 1L;
+		typedQuery.setParameter("key", id);
+		
+		ArrayList<MovieEntity> arrayList = (ArrayList<MovieEntity>) typedQuery.getResultList();
+		System.out.println("listelendi " + MovieEntity.class);
+		return arrayList;
+		}
+		else {
 			String hql = "select str from MovieEntity as str where str.id>=:key";
 			TypedQuery<MovieEntity> typedQuery = session.createQuery(hql, MovieEntity.class);
 			typedQuery.setMaxResults(rowCount);
@@ -102,11 +103,11 @@ public class MovieEntityController implements Controllable<MovieEntity> {
 				System.out.println("bulundu... " + entity);
 				return entity;
 			} else {
-				System.out.println("AradÃ½Ã°Ã½nÃ½z kriterde sonuÃ§lar bulunamadÃ½ ...");
+				System.out.println("Aradýðýnýz kriterde sonuçlar bulunamadý ...");
 				return null;
 			}
 		} catch (Exception e) {
-			System.out.println("find anÃ½nda hata meydana geldi !!!!! " + Controllable.class);
+			System.out.println("find anýnda hata meydana geldi !!!!! " + Controllable.class);
 			e.printStackTrace();
 		}
 		return null;
@@ -116,5 +117,5 @@ public class MovieEntityController implements Controllable<MovieEntity> {
 	public MovieEntity singleResult(long id) {
 		return Controllable.super.singleResult(id);
 	}
-	
+
 }
